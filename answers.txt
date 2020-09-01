@@ -1,0 +1,14 @@
+Explain the difference between Relational Databases and SQL.
+// RDB = I'd have to be smart and know lots of stuff like C and model theory(beyond this), 
+// SQL/RDBMS = Structured Query Language thats used to interact with RDBs is easy mode and help us interact in the basic functionality.
+//this question is weird to me, why isn't this like SQL vs noSQL? is this a typo lol?
+
+Why do tables need a primary key?
+// to uniquely ID specific rows in a table
+
+What is the name given to a table column that references the primary key on another table.
+// a foreign key reference
+
+What do we need in order to have a many to many relationship between two tables.
+//when multiple records in a table are affiliate with multiple records in another table it becomes many to many
+//like when customers can purchase products and products can be purchased by many constumers
