@@ -26,6 +26,7 @@ router.post('/register', async (req, res, next) => {
 	}
 });
 
+
 router.post('/login', async (req, res, next) => {
 	try {
 		const { username, password } = req.body
@@ -64,4 +65,67 @@ router.post('/login', async (req, res, next) => {
 	}
 });
 
+//GET ALL USERS
+router.get("/users", async (req, res, next) => {
+    try {
+
+		const users = await Users.find()
+
+        res.json(users)
+    } catch (error) {
+        next(error)
+    }
+})
+
+//GET USER BY :ID
+router.get("/user/:id", async (req, res, next) => {
+    try {
+		const { id } = req.params
+        const user = await Users.findById(id)
+
+        if (!user) {
+            return res.status(404).json({message: "User not found"})
+		}
+		
+		
+
+        res.json({message: user.username})
+    } catch (error) {
+        next(error)
+	}
+})
+
+//GET USER INFO
+router.get("/user/:id", async (req, res, next) => {
+    try {
+		const { id } = req.params
+        const user = await Users.findById(id)
+
+        if (!user) {
+            return res.status(404).json({message: "User not found"})
+		}
+		
+		
+
+        res.json({message: user.username})
+    } catch (error) {
+        next(error)
+	}
+})
+
+//DELETE BY :ID
+router.delete("/user/del/:id", async (req, res, next) => {
+	try {
+		const { id } = req.params
+        const user = await Users.findById(id).del()
+
+        if (!user) {
+            return res.status(404).json({message: "User not found"})
+		}
+		
+		res.status(204).end()
+	} catch (error) {
+		next(error)
+	}
+})
 module.exports = router;

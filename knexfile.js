@@ -11,6 +11,7 @@ module.exports = {
         conn.run('PRAGMA foreign_keys = ON', done);
       },
     },
+    seeds: { directory: './seeds' },
   },
 
 };
